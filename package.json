@@ -1,0 +1,26 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "Algorithms",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha --compilers js:babel/register --recursive"
+  },
+  "keywords": [
+    "Algorithms",
+    "JavaScript"
+  ],
+  "author": "zwhu",
+  "license": "ISC",
+  "devDependencies": {
+    "expect": "^1.12.2",
+    "mocha": "^2.3.3"
+  },
+  "dependencies": {
+    "babel": "^5.8.23",
+    "expect.js": "^0.3.1"
+  }
+}
