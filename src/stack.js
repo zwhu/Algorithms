@@ -1,11 +1,14 @@
 /**
  * Created by zwhu on 15/10/15.
+ * 下压堆栈（链表实现）
  */
 
 
 //TODO: 1. 增加Iterator，可能是继承来的
 // 2. 增加测试用例
 
+
+import Node from './node'
 export default class Stack {
   __first = null
   __N = 0
@@ -31,12 +34,4 @@ export default class Stack {
     return item
   }
 
-}
-
-
-class Node {
-  constructor(item, next) {
-    this.item = item
-    this.next = next
-  }
 }
