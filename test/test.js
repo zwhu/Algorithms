@@ -6,6 +6,7 @@ import expect from 'expect.js'
 
 import Stack from '../src/stack.js'
 import Queue from '../src/queue.js'
+import Bag from '../src/bag.js'
 
 describe('base', () => {
 
@@ -52,6 +53,32 @@ describe('base', () => {
         expect(queue.dequeue()).to.be(str[str.length - 1 - queue.size()])
       }
       expect(queue.size()).to.be(0)
+    })
+  })
+
+  describe('bag', () => {
+
+    let bag, str = 'Hello'
+    before(() => {
+      bag = new Bag()
+    })
+    after(() => {
+      bag = null
+    })
+
+    it('add', () => {
+      str.split('').forEach(v => bag.add(v))
+      expect(bag.size()).to.be(5)
+    })
+
+    it('iterator', () => {
+      let index = 0
+      for(let v of bag) {
+        index++
+        expect(v).to.be(str[str.length - index])
+      }
+
+      expect(bag.size()).to.be(5)
     })
   })
 

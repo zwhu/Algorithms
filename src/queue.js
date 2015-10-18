@@ -21,7 +21,7 @@ export default class Queue {
 
   enqueue(item) {
     let node = new Node(item, null)
-    if (this.__N == 0)
+    if (this.isEmpty())
       this.__last = this.__first = node
     else
       this.__last = this.__last.next = node
