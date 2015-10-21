@@ -4,8 +4,9 @@
  */
 
 import Node from './node'
+import Iterator from './iterator'
 
-export default class Queue {
+export default class Queue extends Iterator {
 
   __first = null
   __last = null

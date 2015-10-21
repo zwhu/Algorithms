@@ -4,8 +4,9 @@
  */
 
 import Node from './node'
+import Iterator from './iterator'
 
-export default class Bag {
+export default class Bag extends Iterator {
   __first = null
   __N = 0
 
@@ -23,27 +24,4 @@ export default class Bag {
     this.__N++
   }
 
-  [Symbol.iterator]() {
-
-    let current = this.__first
-
-    return ({
-      next() {
-        if (current) {
-          let value = current.item
-            , done = current == null
-          current = current.next
-          return {
-            done: done,
-            value: value
-          }
-        } else {
-          return {
-            done: true
-          }
-        }
-      }
-    })
-
-  }
 }

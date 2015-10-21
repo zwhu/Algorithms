@@ -4,12 +4,10 @@
  */
 
 
-//TODO: 1. 增加Iterator，可能是继承来的
-// 2. 增加测试用例
-
-
 import Node from './node'
-export default class Stack {
+import Iterator from './iterator'
+
+export default class Stack extends Iterator {
   __first = null
   __N = 0
 
