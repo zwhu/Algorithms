@@ -9,20 +9,24 @@
 
 // 怎样画成动画呢？
 
+import Base from './base.js'
+
 let less = (a, b) => a < b
 
-let exch = (array, i, j) => [array[i], array[j]] = [array[j], array[i]]
-
-let Selection = (array) => {
-  for (let i = 0; i < array.length; i++) {
-    let min = i
-    for (let j = i + 1; j < array.length; j++) {
-      if (array[j] < array[min]) min = j
+class Selection extends Base {
+  sort() {
+    let array = this.__display
+    for (let i = 0; i < array.length; i++) {
+      let min = i
+      for (let j = i + 1; j < array.length; j++) {
+        if (array[j] < array[min]) min = j
+      }
+      this.exch(array, i, min)
     }
-    exch(array, i, min)
+    return array
   }
-  return array
 }
 
-console.log(Selection([2, 7, 6, 10, 5, 9]))
+let selection = new Selection([2, 7, 6, 10, 5, 9], less)
+console.log(selection.sort())
 
