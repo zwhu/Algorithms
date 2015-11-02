@@ -7,6 +7,7 @@ export default class Base {
 
   constructor(array, cb) {
     this.__raw = array
+    // clone array
     this.__display = this.__raw.slice(0)
     this.__compare = cb || this.__compare
   }
