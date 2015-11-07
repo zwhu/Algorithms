@@ -36,9 +36,12 @@ let randomArray2 = (start, end) => {
   return random
 }
 
-console.time('random1')
-let random1 = randomArray1(1, 1e5)
-console.timeEnd('random1')
-console.time('random2')
-let random2 = randomArray2(1, 1e5)
-console.timeEnd('random2')
+//console.time('random1')
+//let random1 = randomArray1(1, 1e5)
+//console.timeEnd('random1')
+//console.time('random2')
+//let random2 = randomArray2(1, 1e5)
+//console.timeEnd('random2')
+export {
+  randomArray1 as randomArray
+}

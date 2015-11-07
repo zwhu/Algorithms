@@ -1,6 +1,6 @@
 /**
  * Created by zwhu on 15/10/28.
- * 二分查找
+ * 二分查找,有序数组
  */
 
 let binarySearch = (key, a) => {
