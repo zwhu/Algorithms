@@ -1,13 +1,14 @@
 /**
- * Created by zwhu on 15/11/7.
+ * Created by zwhu on 15/11/8.
  * 归并排序
- * 自顶向下的归并排序
+ * 自底向上的归并排序
  */
+
 
 import Base from './base'
 import {randomArray as random} from '../../randomarray'
 
-class Merge extends Base {
+class MergeBU extends Base {
 
   sort() {
     let array = this.__display
@@ -30,23 +31,26 @@ class Merge extends Base {
 
     }
 
+    let N = array.length
 
-    let __sort = (a, lo, hi) => {
-      if (lo == hi) return
-      let mid = lo + ((hi - lo) / 2) | 0
-      __sort(a, lo, mid)
-      __sort(a, mid + 1, hi)
-      merge(a, lo, mid, hi)
+    // i = 1,2,4,8
+    for (let i = 1; i < N; i = i + i) {
+
+      for (let lo = 0; lo < N - i; lo += i + i) {
+        // lo is min
+        // mid = lo + i - 1
+        // hi = Math.min(lo + i + i - 1, N - 1) => 当最大值大于数组长度的时候,取数组长度为最大值
+        merge(array, lo, lo + i - 1, Math.min(lo + i + i - 1, N - 1))
+      }
     }
 
-    __sort(array, 0, array.length - 1)
 
     return array
   }
 }
 
 
-let mergesort = new Merge(random(1, 100))
+let mergesort = new MergeBU(random(1, 100))
 
 let sorted = mergesort.sort().every((v, i, a) => v < a[i + 1] || i == a.length - 1)
 
