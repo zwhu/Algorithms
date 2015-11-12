@@ -6,23 +6,28 @@
 
 "use strict"
 
-let less = (a, b) =>  a < b
-let exch = (a, i, j) => [a[i], a[j]] = [a[j], a[i]]
+let less = (a, i, j) =>  a[i] < a[j]
+let exch = (a, i, j) => {
+  let temp = a[i]
+  a[i]     = a[j]
+  a[j]     = temp
+}
 
 // 上浮
 let swim = (a, k) => {
-  let pk = k / 2 | 0
-  while (k > 1 && less(pk, k)) {
-    exch(a, pk, k)
-    k = pk
+  console.log(a, k)
+
+  while (k > 1 && less(a, (k / 2) | 0, k)) {
+    exch(a, (k / 2) | 0, k)
+    k = (k / 2) | 0
   }
 }
 // 下沉
 let sink = (a, k, N) => {
-  while (2 * k < N) {
+  while (2 * k <= N) {
     let j = 2 * k
-    if (j < N && less(j, j + 1)) j++
-    if (!(less(k, j))) break
+    if (j < N && less(a, j, j + 1)) j++
+    if (!(less(a, k, j))) break
     exch(a, k, j)
     k = j
   }
@@ -30,13 +35,9 @@ let sink = (a, k, N) => {
 
 class MaxPQ {
 
-  __pq = []
+  __pq = [];
 
-  __N = 0
-
-  constructor(maxN) {
-    this.__pq = new Array(maxN + 1)
-  }
+  __N = 0;
 
   isEmpty() {
     return 0 == this.__N
@@ -47,14 +48,8 @@ class MaxPQ {
   }
 
   insert(v) {
-    if (this.__N + 1 === this.__pq.length) {
-      if (less(this.__pq[this.__N], v)) {
-        this.__pq[this.__N] = v
-        swim(this.__pq, this.__N)
-      }
-    } else {
-      this.__pq[++this.__N] = v
-    }
+    this.__pq[++this.__N] = v
+    swim(this.__pq, this.__N)
   }
 
   //return max
@@ -72,12 +67,22 @@ class MaxPQ {
 
 }
 
-let maxpq = new MaxPQ(5)
-maxpq.insert('p')
-maxpq.insert('s')
-maxpq.insert('t')
-maxpq.insert('a')
-maxpq.insert('y')
-maxpq.insert('e')
+let maxpq = new MaxPQ()
+maxpq.insert(10)
+maxpq.insert(5)
+maxpq.insert(1)
+maxpq.insert(4)
+maxpq.insert(6)
+maxpq.insert(2)
+maxpq.insert(9)
+maxpq.insert(13)
+maxpq.insert(3)
 
 console.log(maxpq.__pq)
+console.log(maxpq.size())
+console.log(maxpq.max())
+console.log(maxpq.delMax())
+console.log(maxpq.delMax())
+console.log(maxpq.delMax())
+console.log(maxpq.delMax())
+console.log(maxpq.delMax())
