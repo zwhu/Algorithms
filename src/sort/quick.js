@@ -11,6 +11,7 @@ import {randomArray as random} from '../../randomarray'
 // 快排的切分
 // 将数组切分成两个数组
 // 左边数组中的值小于a[i],右边数组中的值大于a[i]
+// 分治思想
 
 let less = (a, b) => {
   return a < b

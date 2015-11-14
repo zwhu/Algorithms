@@ -34,6 +34,7 @@ class MergeBU extends Base {
     let N = array.length
 
     // i = 1,2,4,8
+    // 一一合并成两个元素的数组,二二合并成四个元素的数组,四四合并成八个元素的数组,直到结束
     for (let i = 1; i < N; i = i + i) {
 
       for (let lo = 0; lo < N - i; lo += i + i) {

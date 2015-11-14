@@ -2,11 +2,14 @@
  * Created by zwhu on 15/11/7.
  * 归并排序
  * 自顶向下的归并排序
+ * 整个数组的拆分,2个,4个,8个....
  */
 
 import Base from './base'
 import {randomArray as random} from '../../randomarray'
 
+// 从中间分成两个数组,然后合并
+// 分治思想
 class Merge extends Base {
 
   sort() {
