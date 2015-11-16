@@ -1,6 +1,6 @@
 /**
  * Created by zwhu on 15/10/16.
- * 先进先出队列
+ * 先进先出队列(链表实现)
  */
 
 import Node from './node'
