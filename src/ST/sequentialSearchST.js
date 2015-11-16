@@ -18,7 +18,48 @@ class sequentialSearchST {
 
   first = null
 
+  N = 0
+
+  size() {
+    return this.N
+  }
+
+  keys() {
+    var keys = []
+    for (let {key} of this) {
+      keys.push(key)
+    }
+    return keys
+  }
+
+  // 即时删除
+  delete(key) {
+    if(key === this.first.key) {
+      this.first = this.first.next
+      return
+    }
+
+    for (let node of this) {
+      if (node.next && key === node.next.key) {
+        node.next = node.next && node.next.next
+        return
+      }
+    }
+  }
+
+  // 延时删除
+  deleteAfter(key) {
+    for (let node of this) {
+      if (key === node.key) {
+        node.val = null
+        return
+      }
+    }
+  }
+
+
   put(key, val) {
+    if (null === val) this.delete(key)
 
     for (let node of this) {
       if (key === node.key) {
@@ -28,6 +69,7 @@ class sequentialSearchST {
     }
 
     this.first = new Node(key, val, this.first)
+    this.N++
 
   }
 
@@ -75,5 +117,13 @@ st.put('b', '2')
 assert.equal(st.get('b'), '2')
 st.put('b', '3')
 assert.equal(st.get('a'), '1')
-console.log(st.get('b'))
 assert.equal(st.get('b'), '3')
+assert.deepEqual(st.keys(), ['b', 'a'])
+st.delete('b')
+assert.equal(st.get('b'), null)
+assert.equal(st.get('a'), 1)
+st.put('b', '3')
+st.delete('a')
+assert.equal(st.get('a'), null)
+
+
