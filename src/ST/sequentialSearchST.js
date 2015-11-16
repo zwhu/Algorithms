@@ -8,8 +8,8 @@ import assert from 'assert'
 
 class Node {
   constructor(key, val, next) {
-    this.key = key
-    this.val = val
+    this.key  = key
+    this.val  = val
     this.next = next
   }
 }
@@ -33,9 +33,7 @@ class sequentialSearchST {
 
   get(key) {
 
-    console.log(this)
     for (let node of this) {
-
       if (key === node.key) {
         return node.val
       }
@@ -51,11 +49,11 @@ class sequentialSearchST {
     return ({
       next() {
         if (current) {
-          let {key, val} = current
-          current = current.next
+          let node = current
+          current  = current.next
           return {
             done: false,
-            val: {key, val}
+            value: node
           }
         } else {
           return {
@@ -73,8 +71,9 @@ let st = new sequentialSearchST()
 assert.equal(st.get('a'), null)
 st.put('a', '1')
 assert.equal(st.get('a'), '1')
-//st.put('b', '2')
-//assert.equal(st.get('b'), '2')
-//st.put('b', '3')
-//assert.equal(st.get('a'), '1')
-//assert.equal(st.get('b'), '3')
+st.put('b', '2')
+assert.equal(st.get('b'), '2')
+st.put('b', '3')
+assert.equal(st.get('a'), '1')
+console.log(st.get('b'))
+assert.equal(st.get('b'), '3')
