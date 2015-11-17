@@ -1,7 +1,7 @@
 /**
  * Created by zwhu on 15/11/16.
  *
- * 顺序查找(基于无序链表)
+ * 顺序查找(基于无序链表).
  */
 
 import assert from 'assert'
@@ -125,5 +125,3 @@ assert.equal(st.get('a'), 1)
 st.put('b', '3')
 st.delete('a')
 assert.equal(st.get('a'), null)
-
-
