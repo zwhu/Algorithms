@@ -14,7 +14,7 @@ class Node {
   }
 }
 
-class sequentialSearchST {
+class SequentialSearchST {
 
   first = null
 
@@ -108,7 +108,7 @@ class sequentialSearchST {
 
 }
 
-let st = new sequentialSearchST()
+let st = new SequentialSearchST()
 
 assert.equal(st.get('a'), null)
 st.put('a', '1')
