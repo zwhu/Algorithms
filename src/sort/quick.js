@@ -21,7 +21,12 @@ let exch = (array, i, j) => {
   [array[i], array[j]] = [array[j], array[i]]
 }
 
-export default class Quick extends Base {
+export default class Quick {
+
+  constructor(array) {
+    this.__display = array
+  }
+
   sort() {
     let array = this.__display
 
@@ -54,11 +59,11 @@ export default class Quick extends Base {
   }
 }
 
-let quick = new Quick(random(1, 1000))
-
-let sorted = quick.sort()
-let isSorted = sorted.every((v, i, a) => v < a[i + 1] || i == a.length - 1)
-
-console.log('排序的结果是:' + (isSorted ? 'right' : 'error'))
+//let quick = new Quick(random(1, 1000))
+//
+//let sorted   = quick.sort()
+//let isSorted = sorted.every((v, i, a) => v < a[i + 1] || i == a.length - 1)
+//
+//console.log('排序的结果是:' + (isSorted ? 'right' : 'error'))
 
 
