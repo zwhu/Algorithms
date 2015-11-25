@@ -80,7 +80,7 @@ class RedBlackBST {
 
       if (_isRed(h.right) && !_isRed(h.left)) h = _rotateLeft(h)
       if (_isRed(h) && _isRed(h.left.left)) h = _rotateRight(h)
-      if (_isRed(h.left) && _isRed(h.right)) h = _flipColors(h)
+      if (_isRed(h.left) && _isRed(h.right))  _flipColors(h)
 
       h.N = size(h.left) + size(h.right) + 1
 
