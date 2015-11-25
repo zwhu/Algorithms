@@ -31,12 +31,12 @@ class BinarySearchTree {
 
   get(key) {
 
-    let _get = (node, key) => {
+    let _get = (node) => {
 
       if (null === node) return null
 
-      if (key < node.key) return _get(node.left, key)
-      else if (key > node.key) return _get(node.right, key)
+      if (key < node.key) return _get(node.left)
+      else if (key > node.key) return _get(node.right)
       else return node.val
 
     }
@@ -46,11 +46,11 @@ class BinarySearchTree {
 
   put(key, val) {
 
-    let _put = (node, key, val) => {
+    let _put = (node) => {
       if (null === node) return new Node(key, val, 1)
 
-      if (key < node.key) node.left = _put(node.left, key, val)
-      else if (key > node.key) node.right = _put(node.right, key, val)
+      if (key < node.key) node.left = _put(node.left)
+      else if (key > node.key) node.right = _put(node.right)
       else node.val = val
 
       node.N = this.size(node.left) + this.size(node.right) + 1
@@ -58,7 +58,7 @@ class BinarySearchTree {
       return node
     }
 
-    this._root = _put(this._root, key, val)
+    this._root = _put(this._root)
   }
 
 }
