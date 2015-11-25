@@ -88,11 +88,21 @@ class RedBlackBST {
     }
 
     this.root = _put(this.root)
-
-
   }
 
   get(key) {
+    let _get = (h) => {
+
+      if(null === h) return null
+
+      if (h < h.key) return _get(h.left)
+      else if (h > h.key) return _get(h.right)
+      else return h.val
+
+    }
+
+    return _get(this.root)
+
 
   }
 
