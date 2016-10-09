@@ -1,13 +1,13 @@
 'use strict'
 
 let KMP = require('./index')
-
+   ,assert = require('assert') 
 function test1() {
     let text = 'AABBCC'
         , pattern = 'BC'
         , kmp = new KMP(pattern)
         , offset = kmp.search(text)
-    console.log('offset :', offset)
+    assert.equal(offset, 3)
     console.log('text   :', text)
     console.log('pattern:', `${Array(offset).fill(' ').join('')}${pattern}\n`)
 }
@@ -17,7 +17,7 @@ function test2() {
         , pattern = 'AACAA'
         , kmp = new KMP(pattern)
         , offset = kmp.search(text)
-    console.log('offset :', offset)
+    assert.equal(offset, 12)
     console.log('text   :', text)
     console.log('pattern:', `${Array(offset).fill(' ').join('')}${pattern}\n`)
 }
