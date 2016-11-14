@@ -5,6 +5,7 @@ class Digraph {
         this._E = 0
         this._V = []
         // 如果用对象的形式没法区分以 '1' 和 1 做 key
+        // ES6  new Set
         this._adjK = []
         this._adjV = []
     }

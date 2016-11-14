@@ -16,9 +16,6 @@ class DirectedDFS {
     }
 
     _dfs(G, v) {
-        if(!G.isV(v))
-            throw new Error('别犯傻, 这个顶点都不存在')
-
         this._marked.push(v)
 
         ~~(G.adj(v) || []).forEach(w => {
